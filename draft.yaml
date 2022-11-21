@@ -1,0 +1,617 @@
+models:
+  HospitalSetting:
+    name: string:255
+    website: string:255 nullable
+    phone: string:255 nullable
+    fax: string:255 nullable
+    country: string:255 nullable
+    address: string:255 nullable
+    extablished: date nullable
+    email: string:255 nullable
+    logo: string:255 nullable
+    favicon: string:255 nullable
+    size: string:255 nullable
+    type: string:255 nullable
+    facebook: string:255 nullable
+    twitter: string:255 nullable
+    whatsapp: string:255 nullable
+    instagram: string:255 nullable
+    driver: string:255 nullable
+    encryption: string:255 nullable
+    host: string:255 nullable
+    port: string:255 nullable
+    username: string:255 nullable
+    email_from: string:255 nullable
+    email_from_name: string:255 nullable
+    invoice_prefix: string:255 nullable
+    invoice_logo: string:255 nullable
+    user_prefix: string:255 nullable
+    patient_prefix: string:255 nullable
+    invoice_number_mode: string:255 nullable
+    invoice_last_number: string:255 nullable
+    taxes: string:255 nullable
+    discount: string:255 nullable
+
+  Branch:
+    name: string:255 nullable
+    address: text nullable
+    phone: string:255 nullable
+    email: string:255 nullable
+    website: string:255 nullable
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Department:
+    name: string:255 nullable
+    code: string:255 nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Specialist:
+    name: string:255 nullable
+    code: string:255 nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Doctor:
+    about_doctor: string:255 nullable
+    charge: integer unsigned default:0
+    experience: string:255 nullable
+    status: tinyint default:0
+    user_id: id foreign:users
+    specialist_id: id foreign:specialists
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Nurse:
+    about_nurse: string:255 nullable
+    experience: string:255 nullable
+    status: tinyint default:0
+    user_id: id foreign:users
+    specialist_id: id foreign:specialists
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Patient:
+    registration_no: string:255 nullable
+    registration_date: date nullable
+    referral: enum:Yes,No default:No
+    referred_by: string:255 nullable
+    patient_type: enum:Inpatient,Outpatient nullable
+    title: enum:Mr,Mrs,Miss,Ms,Dr,Prof,Rev nullable
+    name: string:255
+    dob: date nullable
+    gender: enum:M,F default:M
+    marital_status: enum:Single,Married,Divorced, Widowed nullable
+    blood_group: enum:A+,A-,B+,B-,AB+,AB-,O+,O- nullable
+    email: string:255 nullable
+    phone: string:255 nullable
+    religion: string:255 nullable
+    occupation: string:255 nullable
+    country: string:255 nullable
+    home_phone: string:255 nullable
+    home_address: text nullable
+    fathers_name: string:255 nullable
+    fathers_phone: string:255 nullable
+    fathers_address: text nullable
+    mothers_name: string:255 nullable
+    mothers_phone: string:255 nullable
+    mothers_address: text nullable
+    same_as_patient: tinyint default:0
+    next_of_kin_phone: string:255 nullable
+    next_of_kin_email: string:255 nullable
+    next_of_kin_address: text nullable
+    payment_method: enum:Cash,Card,Cheque nullable
+    symptoms: text nullable
+    image: string:255 nullable
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  PatientVisit:
+    visit_no: string:255 nullable
+    visit_type: string:255 nullable
+    visit_date: date nullable
+    visit:status: enum:Admitted,Discharged,Pending nullable
+    description: text nullable
+    patient_id: id foreign:patients
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  PatientRecord:
+    softDelete: true
+  Schedule:
+    start_time: time nullable
+    end_time: time nullable
+    status: tinyint default:0
+    note: text nullable
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Laboratory:
+    name: string:255 nullable
+    code: string:255 nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Radiology:
+    name: string:255 nullable
+    code: string:255 nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  BloodBank:
+    blood_type: string:255 nullable
+    status: tinyint default:0
+    patient_id: id foreign:patients
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  OperationType:
+    name: string:255 nullable
+    code: string:255 nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Operation:
+    operation_date: date nullable
+    operation_time: time nullable
+    amount: integer unsigned default:0
+    description: text nullable
+    status: tinyint default:0
+    operation_type_id: id foreign:operation_types
+    patient_id: id foreign:patients
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  MedicineType:
+    name: string:255 nullable
+    code: string:255 nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  MedicineCategory:
+    name: string:255 nullable
+    code: string:255 nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Supplier:
+    name: string:255 nullable
+    code: string:255 nullable
+    email: string:255 nullable
+    phone: string:255 nullable
+    address: text nullable
+    company: string:255 nullable
+    product: string:255 nullable
+    description: text nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Purchase:
+    code: string:255 nullable
+    name: string:255 nullable
+    type: tinyint default:0
+    medicine_generic_name: string:255 nullable
+    medicine_unit: string:255 nullable
+    medicine_strength: string:255 nullable
+    medicine_shelf_life: string:255 nullable
+    quantity: integer unsigned default:0
+    quantity_type: string:255 nullable
+    price: integer unsigned default:0
+    expiry_date: date nullable
+    note: text nullable
+    image: string:255 nullable
+    status: tinyint default:0
+    medicine_type_id: id foreign:medicine_types
+    medicine_category_id: id foreign:medicine_categories
+    supplier_id: id foreign:suppliers
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Medicine:
+    medicine_code: string:255 nullable
+    medicine_name: string:255 nullable
+    medicine_price: integer unsigned default:0
+    medicine_profit: integer unsigned default:0
+    description: text nullable
+    available_quantity: integer unsigned default:0
+    alert_quantity: integer unsigned default:0
+    status: tinyint default:0
+    purchase_id: id foreign:purchases
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Prescription:
+    dosage: string:255 nullable
+    frequency: string:255 nullable
+    duration: string:255 nullable
+    food_relation: string:255 nullable
+    route: string:255 nullable
+    instruction: text nullable
+    status: tinyint default:0
+    patient_id: id foreign:patients
+    patient_visit_id: id foreign:patient_visits
+    user_id: id foreign:users
+    medicine_id: id foreign:medicines
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Vital:
+    systolic_b_p: integer unsigned default:0
+    diastolic_b_p: integer unsigned default:0
+    temperature: integer unsigned default:0
+    weight: integer unsigned default:0
+    height: integer unsigned default:0
+    pulse: integer unsigned default:0
+    respiratory_rate: integer unsigned default:0
+    heart_rate: integer unsigned default:0
+    urine_output: integer unsigned default:0
+    blood_sugar_r: integer unsigned default:0
+    blood_sugar_f: integer unsigned default:0
+    spo_2: integer unsigned default:0
+    avpu: string:255 nullable
+    trauma: string:255 nullable
+    mobility: string:255 nullable
+    oxygen_supplement: string:255 nullable
+    comment: text nullable
+    status: tinyint default:0
+    patient_id: id foreign:patients
+    patient_visit_id: id foreign:patient_visits
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Allergy:
+    name: string:255 nullable
+    type: string:255 nullable
+    reaction: string:255 nullable
+    status: tinyint default:0
+    patient_id: id foreign:patients
+    patient_visit_id: id foreign:patient_visits
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Immunisation:
+    name: string:255 nullable
+    type: string:255 nullable
+    date: date nullable
+    status: tinyint default:0
+    patient_id: id foreign:patients
+    patient_visit_id: id foreign:patient_visits
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  PresentingComplaint:
+    presenting_complaint_type: string:255 nullable
+    presenting_complaint: string:255 nullable
+    status: tinyint default:0
+    patient_id: id foreign:patients
+    patient_visit_id: id foreign:patient_visits
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Diagnose:
+    name: string:255 nullable
+    icd_10: string:255 nullable
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  BloodDonor:
+    softDelete: tinyint default:0
+  TestType:
+    name: string:255 nullable
+    price: integer unsigned default:0
+    discount: integer unsigned default:0
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Investigation:
+    stat: string:255 nullable
+    ot_required: string:255 nullable
+    result: string:255 nullable
+    status: tinyint default:0
+    test_type_id: id foreign:test_types
+    patient_id: id foreign:patients
+    patient_visit_id: id foreign:patient_visits
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Advice:
+    name: string:255 nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  MedicalCertificate:
+    content: text nullable
+    finalised: tinyint default:0
+    status: tinyint default:0
+    patient_id: id foreign:patients
+    patient_visit_id: id foreign:patient_visits
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Pharmacy:
+    code: string:255 nullable
+    name: string:255 nullable
+    email: string:255 nullable
+    phone: string:255 nullable
+    address: text nullable
+    status: tinyint default:0
+    branch_id: id foreign:branches
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  DoctorOrder:
+    order_no: string:255 nullable
+    order_type: string:255 nullable
+    status: tinyint default:0
+    patient_visit_id: id foreign:patient_visits
+    user_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Billing:
+    status: tinyint default:0
+    doctor_order_id: id foreign:doctor_orders
+    patient_visit_id: id foreign:patient_visits
+    approved_by_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  BillingInvoice:
+    invoice_no: string:255 nullable
+    total: integer unsigned default:0
+    pending_amount: integer unsigned default:0
+    paid_amount: integer unsigned default:0
+    mode: tinyint default:0
+    discount_type: string:255 nullable
+    discount_amount: integer unsigned default:0
+    discount_note: string:255 nullable
+    note: text nullable
+    tax: integer unsigned default:0
+    additional_charge: integer unsigned default:0
+    status: tinyint default:0
+    patient_id: id foreign:patients
+    patient_visit_id: id foreign:patient_visits
+    doctor_order_id: id foreign:doctor_orders
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  BillingTransaction:
+    payment_amount: integer unsigned default:0
+    payment_mode: string:255 nullable
+    status: tinyint default:0
+    patient_visit_id: id foreign:patient_visits
+    billing_invoice_id: id foreign:billing_invoices
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  BillingInvoiceDetail:
+    item_amount: integer unsigned default:0
+    item_total_amount: integer unsigned default:0
+    billing_invoice_id: id foreign:billing_invoices
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  ChequeDetail:
+    cheque_no: string:255 nullable
+    cheque_date: date nullable
+    bank_name: string:255 nullable
+    status: tinyint default:0
+    billing_transaction_id: id foreign:billing_transactions
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  SampleCollection:
+    sample_code: string:255 nullable
+    collect_date: datetime nullable
+    receive_date: datetime nullable
+    dispatch_date: datetime nullable
+    cancel_dispatch_date: datetime nullable
+    status: tinyint default:0
+    investigation_id: id foreign:investigations
+    laboratory_id: id foreign:laboratories
+    approved_by_id: id foreign:users
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Ward:
+    code: string:255 nullable
+    name: string:255 nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  RoomType:
+    code: string:255 nullable
+    name: string:255 nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Room:
+    room_no: string:255 nullable
+    name: string:255 nullable
+    price: integer unsigned default:0
+    capacity: integer unsigned default:0
+    status: tinyint default:0
+    image: string:255 nullable
+    ward_id: id foreign:wards
+    room_type_id: id foreign:room_types
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  BedType:
+    code: string:255 nullable
+    name: string:255 nullable
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  Bed:
+    bed_no: string:255 nullable
+    name: string:255 nullable
+    price: integer unsigned default:0
+    status: tinyint default:0
+    image: string:255 nullable
+    room_id: id foreign:rooms
+    bed_type_id: id foreign:bed_types
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  PharmacyInvoice:
+    invoice_no: string:255 nullable
+    total: integer unsigned default:0
+    pending_amount: integer unsigned default:0
+    paid_amount: integer unsigned default:0
+    mode: tinyint default:0
+    discount_type: string:255 nullable
+    discount_amount: integer unsigned default:0
+    discount_note: string:255 nullable
+    note: text nullable
+    tax: integer unsigned default:0
+    additional_charge: integer unsigned default:0
+    status: tinyint default:0
+    patient_id: id foreign:patients
+    patient_visit_id: id foreign:patient_visits
+    doctor_order_id: id foreign:doctor_orders
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  PharmacyTransaction:
+    payment_amount: integer unsigned default:0
+    payment_mode: string:255 nullable
+    status: tinyint default:0
+    patient_visit_id: id foreign:patient_visits
+    pharmacy_invoice_id: id foreign:pharmacy_invoices
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  PharmacyInvoiceDetail:
+    item_amount: integer unsigned default:0
+    item_total_amount: integer unsigned default:0
+    pharmacy_invoice_id: id foreign:pharmacy_invoices
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  BloodRequest:
+    reason: text nullable
+    blood_type: string:255 nullable
+    unit: integer unsigned default:0
+    status: tinyint default:0
+    patient_id: id foreign:patients
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  BloodStock:
+    blood_group: string:255 nullable
+    blood_bank_id: id foreign:blood_banks
+    unit: integer unsigned default:0
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  BloodStockDetail:
+    unit: integer unsigned default:0
+    total: integer unsigned default:0
+    balance: integer unsigned default:0
+    blood_stock_id: id foreign:blood_stocks
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  BloodIssue:
+    unit: integer unsigned default:0
+    status: tinyint default:0
+    blood_request_id: id foreign:blood_requests
+    blood_stock_detail_id: id foreign:blood_stock_details
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+  LabTest:
+    code: string:255 nullable
+    name: string:255 nullable
+    price: integer unsigned default:0
+    percentage: integer unsigned default:0
+    status: tinyint default:0
+    created_by_id: id foreign:users
+    updated_by_id: id foreign:users
+
+
+
+controllers:
+  HospitalSetting:
+    resource
+  Branch:
+    resource
+  Department:
+    resource
+  Specialist:
+    resource
+  Doctor:
+    resource
+  Nurse:
+    resource
+  Patient:
+    resource
+  PatientVisit:
+    resource
+  PatientRecord:
+    resource
+  Schedule:
+    resource
+  Laboratory:
+    resource
+  Radiology:
+    resource
+  BloodBank:
+    resource
+  OperationType:
+    resource
+  Operation:
+    resource
+  MedicineType:
+    resource
+  MedicineCategory:
+    resource
+  Supplier:
+    resource
+  Purchase:
+    resource
+  Medicine:
+    resource
+  Prescription:
+    resource
+  Vital:
+    resource
+  Allergy:
+    resource
+  Immunisation:
+    resource
+  PresentingComplaint:
+    resource
+  Diagnose:
+    resource
+  BloodDonor:
+    resource
+  TestType:
+    resource
+  Investigation:
+    resource
+  Advice:
+    resource
+  MedicalCertificate:
+    resource
+  Pharmacy:
+    resource
+  DoctorOrder:
+    resource
+  Billing:
+    resource
+  BillingInvoice:
+    resource
+  BillingTransaction:
+    resource
+  BillingInvoiceDetail:
+    resource
+  ChequeDetail:
+    resource
+  SampleCollection:
+    resource
+  Ward:
+    resource
+  RoomType:
+    resource
+  Room:
+    resource
+  BedType:
+    resource
+  Bed:
+    resource
+  PharmacyInvoice:
+    resource
+  PharmacyTransaction:
+    resource
+  PharmacyInvoiceDetail:
+    resource
+  BloodRequest:
+    resource
+  BloodStock:
+    resource
+  BloodStockDetail:
+    resource
+  BloodIssue:
+    resource
+  LabTest:
+    resource
