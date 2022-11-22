@@ -15,29 +15,10 @@ class Vital extends Model
      * @var array
      */
     protected $fillable = [
-        'systolic_b_p',
-        'diastolic_b_p',
-        'temperature',
-        'weight',
-        'height',
-        'pulse',
-        'respiratory_rate',
-        'heart_rate',
-        'urine_output',
-        'blood_sugar_r',
-        'blood_sugar_f',
-        'spo_2',
-        'avpu',
-        'trauma',
-        'mobility',
-        'oxygen_supplement',
-        'comment',
-        'status',
-        'patient_id',
-        'patient_visit_id',
-        'user_id',
-        'created_by_id',
-        'updated_by_id',
+        'systolic_b_p', 'diastolic_b_p', 'temperature', 'weight', 'height',
+        'pulse', 'respiratory_rate', 'heart_rate', 'urine_output', 'blood_sugar_r',
+        'blood_sugar_f', 'spo_2', 'avpu', 'trauma', 'mobility', 'oxygen_supplement', 'comment', 'status',
+        'patient_id', 'patient_visit_id', 'user_id', 'created_by_id', 'updated_by_id',
     ];
 
     /**
