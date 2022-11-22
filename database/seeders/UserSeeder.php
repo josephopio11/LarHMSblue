@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => Hash::make('lovedone16'),
             'gender' => 'M',
-            'dob' => '1996-01-01',
+            'dob' => '1900-01-01',
             'age' => 25,
             'religion' => 1,
             'address_1' => 'Kampala, Uganda',

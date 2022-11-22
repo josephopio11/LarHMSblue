@@ -28,7 +28,7 @@ class BranchFactory extends Factory
             'address' => $this->faker->text,
             'phone' => $this->faker->phoneNumber,
             'email' => $this->faker->safeEmail,
-            'website' => $this->faker->regexify('[A-Za-z0-9]{8}'),
+            'website' => $this->faker->url,
             'created_by_id' => User::factory(),
             'updated_by_id' => User::factory(),
         ];

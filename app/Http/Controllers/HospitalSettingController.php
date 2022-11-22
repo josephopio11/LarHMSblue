@@ -15,7 +15,7 @@ class HospitalSettingController extends Controller
      */
     public function index(Request $request)
     {
-        $hospitalSettings = HospitalSetting::all();
+        $hospitalSettings = HospitalSetting::firstOrFail();
 
         return view('hospitalSetting.index', compact('hospitalSettings'));
     }

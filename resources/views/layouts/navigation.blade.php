@@ -96,6 +96,15 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </li>
+                
+                <li class="items-center">
+                    <x-nav-link href="{{ route('hospital-setting.index') }}" :active="request()->routeIs('hospital-setting.index')">
+                        <x-slot name="icon">
+                            <i class="fas fa-tv mr-2 text-sm opacity-75"></i>
+                        </x-slot>
+                        {{ __('Hospital Settings') }}
+                    </x-nav-link>
+                </li>
 
                 <li class="items-center">
                     <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
