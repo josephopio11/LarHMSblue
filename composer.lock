@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ace422ea6a773e9601f1f5fd9e0e35b9",
+    "content-hash": "f0ae139374cb13e19482dd2987d23636",
     "packages": [
         {
             "name": "brick/math",
@@ -898,17 +898,64 @@
             "time": "2022-10-26T14:07:24+00:00"
         },
         {
-            "name": "laravel/breeze",
-            "version": "v1.15.1",
+            "name": "jambasangsang/flash",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/breeze.git",
-                "reference": "0d766ce7ada620586e6c27553d990f337df4af3f"
+                "url": "https://github.com/singhateh/Laravel-Flash-Notification.git",
+                "reference": "91994a62ec0fcc7539089eededaf4f0a80e9c039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/breeze/zipball/0d766ce7ada620586e6c27553d990f337df4af3f",
-                "reference": "0d766ce7ada620586e6c27553d990f337df4af3f",
+                "url": "https://api.github.com/repos/singhateh/Laravel-Flash-Notification/zipball/91994a62ec0fcc7539089eededaf4f0a80e9c039",
+                "reference": "91994a62ec0fcc7539089eededaf4f0a80e9c039",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jambasangsang\\Flash\\FlashNotificationServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelFlash": "Jambasangsang\\Flash\\Facades\\LaravelFlash"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jambasangsang\\Flash\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "alagie singhateh",
+                    "email": "3939919@gmail.com"
+                }
+            ],
+            "description": "This package will send flash notification to your application",
+            "support": {
+                "issues": "https://github.com/singhateh/Laravel-Flash-Notification/issues",
+                "source": "https://github.com/singhateh/Laravel-Flash-Notification/tree/v1.0.1"
+            },
+            "time": "2022-02-21T12:22:36+00:00"
+        },
+        {
+            "name": "laravel/breeze",
+            "version": "v1.15.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/breeze.git",
+                "reference": "08ca3c51a95ec70b98ce8d3eab4f810018dff205"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/08ca3c51a95ec70b98ce8d3eab4f810018dff205",
+                "reference": "08ca3c51a95ec70b98ce8d3eab4f810018dff205",
                 "shasum": ""
             },
             "require": {
@@ -956,20 +1003,20 @@
                 "issues": "https://github.com/laravel/breeze/issues",
                 "source": "https://github.com/laravel/breeze"
             },
-            "time": "2022-11-15T16:43:30+00:00"
+            "time": "2022-11-21T12:48:15+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v9.40.1",
+            "version": "v9.41.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9611fdaf2db5759b8299802d7185bcdbee0340bb"
+                "reference": "cc902ce61b4ca08ca7449664cfab2fa96a1d1e28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9611fdaf2db5759b8299802d7185bcdbee0340bb",
-                "reference": "9611fdaf2db5759b8299802d7185bcdbee0340bb",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/cc902ce61b4ca08ca7449664cfab2fa96a1d1e28",
+                "reference": "cc902ce61b4ca08ca7449664cfab2fa96a1d1e28",
                 "shasum": ""
             },
             "require": {
@@ -1142,7 +1189,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-11-15T16:13:22+00:00"
+            "time": "2022-11-22T15:10:46+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -1671,6 +1718,79 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "livewire/livewire",
+            "version": "v2.10.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/livewire/livewire.git",
+                "reference": "fa0441bf82f1674beecb3a8ad8a4ae428736ed18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/fa0441bf82f1674beecb3a8ad8a4ae428736ed18",
+                "reference": "fa0441bf82f1674beecb3a8ad8a4ae428736ed18",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^7.0|^8.0|^9.0",
+                "illuminate/support": "^7.0|^8.0|^9.0",
+                "illuminate/validation": "^7.0|^8.0|^9.0",
+                "league/mime-type-detection": "^1.9",
+                "php": "^7.2.5|^8.0",
+                "symfony/http-kernel": "^5.0|^6.0"
+            },
+            "require-dev": {
+                "calebporzio/sushi": "^2.1",
+                "laravel/framework": "^7.0|^8.0|^9.0",
+                "mockery/mockery": "^1.3.1",
+                "orchestra/testbench": "^5.0|^6.0|^7.0",
+                "orchestra/testbench-dusk": "^5.2|^6.0|^7.0",
+                "phpunit/phpunit": "^8.4|^9.0",
+                "psy/psysh": "@stable"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Livewire\\LivewireServiceProvider"
+                    ],
+                    "aliases": {
+                        "Livewire": "Livewire\\Livewire"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Livewire\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Porzio",
+                    "email": "calebporzio@gmail.com"
+                }
+            ],
+            "description": "A front-end framework for Laravel.",
+            "support": {
+                "issues": "https://github.com/livewire/livewire/issues",
+                "source": "https://github.com/livewire/livewire/tree/v2.10.7"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/livewire",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-08-08T13:52:53+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6239,16 +6359,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.16.2",
+            "version": "v1.16.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "7d1ed5f856ec8b9708712e3fc0708fcabe114659"
+                "reference": "0dbee8802e17911afbe29a8506316343829b056e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/7d1ed5f856ec8b9708712e3fc0708fcabe114659",
-                "reference": "7d1ed5f856ec8b9708712e3fc0708fcabe114659",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/0dbee8802e17911afbe29a8506316343829b056e",
+                "reference": "0dbee8802e17911afbe29a8506316343829b056e",
                 "shasum": ""
             },
             "require": {
@@ -6295,20 +6415,20 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2022-09-28T13:13:22+00:00"
+            "time": "2022-11-21T16:19:18+00:00"
         },
         {
             "name": "laraveldaily/larastarters",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelDaily/Larastarters.git",
-                "reference": "6731e346a9e4a1a61d6bda53ea0338da5718d167"
+                "reference": "051a7ddef439ea4db6b9147eccf123ff0a7a68d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelDaily/Larastarters/zipball/6731e346a9e4a1a61d6bda53ea0338da5718d167",
-                "reference": "6731e346a9e4a1a61d6bda53ea0338da5718d167",
+                "url": "https://api.github.com/repos/LaravelDaily/Larastarters/zipball/051a7ddef439ea4db6b9147eccf123ff0a7a68d8",
+                "reference": "051a7ddef439ea4db6b9147eccf123ff0a7a68d8",
                 "shasum": ""
             },
             "type": "library",
@@ -6337,9 +6457,9 @@
             "description": "Laravel Starter Kits with extra functions",
             "support": {
                 "issues": "https://github.com/LaravelDaily/Larastarters/issues",
-                "source": "https://github.com/LaravelDaily/Larastarters/tree/2.1.2"
+                "source": "https://github.com/LaravelDaily/Larastarters/tree/2.1.3"
             },
-            "time": "2022-10-30T06:51:51+00:00"
+            "time": "2022-11-21T13:32:57+00:00"
         },
         {
             "name": "mockery/mockery",

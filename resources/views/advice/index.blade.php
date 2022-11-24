@@ -1,7 +1,2 @@
-{{--
-    @extends('layouts.app')
-
-    @section('content')
-        advice.index template
-    @endsection
---}}
+<x-app-layout>
+</x-app-layout>

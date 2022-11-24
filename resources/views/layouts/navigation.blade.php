@@ -30,9 +30,8 @@
                   ><img
                           alt="..."
                           class="w-full rounded-full align-middle border-none shadow-lg"
-                          src="{{ asset('images/team-1-800x800.jpg') }}"
-                      /></span></div
-                    >
+                          src="https://eu.ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}"
+                      /></span></div>
                 </a>
                 <div
                     class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
@@ -94,15 +93,6 @@
                             <i class="fas fa-tv mr-2 text-sm opacity-75"></i>
                         </x-slot>
                         {{ __('Dashboard') }}
-                    </x-nav-link>
-                </li>
-                
-                <li class="items-center">
-                    <x-nav-link href="{{ route('hospital-setting.index') }}" :active="request()->routeIs('hospital-setting.index')">
-                        <x-slot name="icon">
-                            <i class="fas fa-tv mr-2 text-sm opacity-75"></i>
-                        </x-slot>
-                        {{ __('Hospital Settings') }}
                     </x-nav-link>
                 </li>
 

@@ -14,6 +14,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+    @flashStyle
+    @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -81,6 +83,9 @@
             document.getElementById(dropdownID).classList.toggle("block");
         }
     </script>
+    @livewireScripts
+    @flashScript
+    @flashRender
 </body>
 
 </html>

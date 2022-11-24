@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Http\Joseph\Traits\updatableAndCreatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class BloodStock extends Model
 {
     use HasFactory;
+    use updatableAndCreatable;
 
     /**
      * The attributes that are mass assignable.
