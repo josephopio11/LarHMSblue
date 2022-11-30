@@ -1,43 +1,77 @@
 <x-app-layout>
     <div class="w-full px-4">
-        <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
-            <div class="rounded-t mb-0 px-4 py-3 border-0">
+        <div class="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded shadow-lg">
+            <div class="px-4 py-3 mb-0 border-0 rounded-t">
                 <div class="flex flex-wrap items-center">
-                    <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-                        <h3 class="font-semibold text-lg text-slate-700">
+                    <div class="relative flex-1 flex-grow w-full max-w-full px-4">
+                        <h3 class="text-lg font-semibold text-slate-700">
                             {{ __('Users') }}
                         </h3>
+                    </div>
+                    <div>
+                        <a href="{{ route('users.create') }}">Add User</a>
                     </div>
                 </div>
             </div>
 
 
-            <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-sky-500">
-                <span class="inline-block align-middle">
-                    Sample table page
-                </span>
-            </div>
 
             <div class="block w-full overflow-x-auto">
+
+
+
+
                 <table class="items-center w-full bg-transparent border-collapse">
                     <thead>
                     <tr>
-                        <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-slate-50 text-slate-500 border-slate-100">
+                        <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap bg-slate-50 text-slate-500 border-slate-100">
                             Name
                         </th>
-                        <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-slate-50 text-slate-500 border-slate-100">
+                        <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap bg-slate-50 text-slate-500 border-slate-100">
                             Email
+                        </th>
+                        <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap bg-slate-50 text-slate-500 border-slate-100">
+                            Role
+                        </th>
+                        <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap bg-slate-50 text-slate-500 border-slate-100">
+                            Gender
+                        </th>
+                        <th class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap bg-slate-50 text-slate-500 border-slate-100">
+                            Status
                         </th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($users as $user)
-                        <tr>
-                            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                {{ $user->name }}
+                        <tr class="hover:bg-sky-50">
+                            <td class="p-4 px-6 align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+                                <div class="flex items-center align-middle">
+                                    <img src="https://i.pravatar.cc/50?u={{ $user->id }}" alt="" class="mr-2 rounded-full">
+                                    <div class="flex-row items-center font-bold align-middle text-bold">
+                                        <h4 cl>{{ $user->name }}</h4>
+                                        <p class="text-xs text-gray-400">{{ $user->name }}</p>
+                                    </div>
+                                </div>
                             </td>
-                            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                {{ $user->email }}
+                            <td class="p-4 px-6 text-xs font-bold align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+                                <a href="mailto:{{ $user->email }}">
+                                    {{ $user->email }}
+                                </a>
+                            </td>
+                            <td class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+
+                                @foreach ($user->getRoleNames() as $role)
+                                    <span class="inline-flex items-center px-3 py-1 mr-1 text-xs font-bold leading-none uppercase border-b-4 rounded-full bg-slate-500">
+                                        {{ $role }}
+                                    </span>
+
+                                @endforeach
+                            </td>
+                            <td class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+                                {{ App\Joseph\Helper::getGenderValue($user->gender) }}
+                            </td>
+                            <td class="p-4 px-6 text-xs align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+                                {{ App\Joseph\Helper::getStatusValue($user->status) }}
                             </td>
                         </tr>
                     @endforeach
