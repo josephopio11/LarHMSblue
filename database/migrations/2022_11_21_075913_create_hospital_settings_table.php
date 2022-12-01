@@ -46,6 +46,7 @@ class CreateHospitalSettingsTable extends Migration
             $table->string('invoice_last_number', 255)->nullable();
             $table->string('taxes', 255)->nullable();
             $table->string('discount', 255)->nullable();
+            $table->string('login_background', 255)->nullable();
             $table->timestamps();
         });
     }
